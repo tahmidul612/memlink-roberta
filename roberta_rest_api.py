@@ -7,12 +7,13 @@ import json
 from flask import Flask, request, jsonify
 from slugify import slugify
 from bs4 import BeautifulSoup
+import os
 
 app = Flask(__name__)
 
 # Load the module
 tf.disable_v2_behavior()
-text_generator = hub.Module('/home/tahmidul/Documents/NHNet/roberta24_gigaword')
+text_generator = hub.Module(os.path.join(os.path.dirname(os.getcwd()), 'roberta24_gigaword'))
 
 # Create placeholders for the input data
 input_placeholder = tf.placeholder(dtype=tf.string, shape=[None])
