@@ -25,8 +25,8 @@ sess = tf.Session()
 sess.run(tf.global_variables_initializer())
 sess.run(tf.tables_initializer())
 
-@app.route('/generate_summary', methods=['POST'])
-def generate_summary():
+@app.route('/slug', methods=['POST'])
+def generate_slug():
     # Get the input data from the request
     input_url = request.json['url']
     
@@ -42,7 +42,6 @@ def generate_summary():
 
     result = {
         "url": input_url,
-        "plain_text": text_content,
         "slug": url_slug
     }
 
